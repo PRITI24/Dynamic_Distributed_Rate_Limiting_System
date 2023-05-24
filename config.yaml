@@ -1,0 +1,29 @@
+rateLimits:
+  - apiKey: API_KEY_1
+    endpoints:
+      - path: /api/endpoint1
+        rpm: 100
+        tpm: 10
+      - path: /api/endpoint2
+        rpm: 200
+        tpm: 20
+  - apiKey: API_KEY_2
+    endpoints:
+      - path: /api/endpoint1
+        rpm: 50
+        tpm: 5
+      - path: /api/endpoint3
+        rpm: 100
+        tpm: 10
+
+priorityClasses:
+  API_KEY_1: 1
+  API_KEY_2: 2
+
+targetEndpoints:
+  - path: /api/endpoint1
+    handler: endpoint1Handler
+  - path: /api/endpoint2
+    handler: endpoint2Handler
+  - path: /api/endpoint3
+    handler: endpoint3Handler
